@@ -1,1 +1,2 @@
-# Repositorio Git para curso de Computacao Paralela
+## Repositorio Git para curso de Computacao Paralela
+### Este branch 'c' contem conteudos para codigos em C do curso.
