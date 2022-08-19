@@ -19,7 +19,7 @@ int main() {
   //calculamos a media
   float MA = (N1 + N2*2 + N3*3 + ME)/7;
 
-  printf("MA = %f\n",MA);
+  printf("MA = %.2f\n",MA);
   
   //verificamos o conceito
   char conceito;
