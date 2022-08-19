@@ -2,44 +2,18 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define NOMES 26
 #define NOMES_LEN 20
 #define PICKNOME 2
 #define PICKNOME_LEN 20
 
-int checkPos(const char nome[]){
-  const char l = nome[0];
-  int n;
-  switch(l){
-    case 'A': n = 1;
-    case 'B': n = 2;
-    case 'C': n = 3;
-    case 'D': n = 4;
-    case 'E': n = 5;
-    case 'F': n = 6;
-    case 'G': n = 7;
-    case 'H': n = 8;
-    case 'I': n = 9;
-    case 'J': n = 10;
-    case 'K': n = 11;
-    case 'L': n = 12;
-    case 'M': n = 13;
-    case 'N': n = 14;
-    case 'O': n = 15;
-    case 'P': n = 16;
-    case 'Q': n = 17;
-    case 'R': n = 18;
-    case 'S': n = 19;
-    case 'T': n = 20;
-    case 'U': n = 21;
-    case 'V': n = 22;
-    case 'W': n = 23;
-    case 'X': n = 24;
-    case 'Y': n = 25;
-    case 'Z': n = 26;   
-  }
-
+//funcao para retornar ascii de um caractere
+int ascii(const char ch){
+  int aux,n;
+  aux = tolower(ch);
+  n = (int) aux;
   return n;
 }
 
@@ -53,7 +27,7 @@ int main() {
 
   //escolhemos dois nomes
   const char *picknome[PICKNOME],*temp[PICKNOME];
-  int n1,n2;
+  int n1,n2,iter;
   int flag = 0;
   while (flag == 0){
     n1 = (rand() % (25 - 1 + 1)) + 1;
@@ -62,15 +36,43 @@ int main() {
   }
   picknome[0] = nomes[n1];
   picknome[1] = nomes[n2];
-  printf("Nomes a ordenar: %s e %s",picknome[0],picknome[1]);
+  printf("Nomes a ordenar: %s e %s\n",picknome[0],picknome[1]);
 
-  //ordenamos os nomes
-  int pos1, pos2;
-  temp[0] = picknome[0];
-  temp[1] = picknome[1];
-  pos1 = checkPos(picknome[0]);
-  pos2 = checkPos(picknome[1]);
+  //transferimos os nomes em forma de ascii para arrays
+  int asc1[strlen(picknome[0])];
+  int asc2[strlen(picknome[1])];
+  
+  for (iter=0;iter<=strlen(picknome[0])-1;iter++){
+    asc1[iter] = ascii(picknome[0][iter]);
+  }
+  for (iter=0;iter<=strlen(picknome[1]-1);iter++){
+    asc2[iter] = ascii(picknome[1][iter]);
+  }
 
-  if (pos1 > pos2){picknome[0] = temp[1];picknome[1] = temp[0]}
-  printf("Nomes ordenados: %s, %s",picknome[0],picknome[1]);
+  //determinamos o menor array
+  size_t len1 = sizeof(asc1)/sizeof(asc1[0]);
+  size_t len2 = sizeof(asc2)/sizeof(asc2[0]);
+  int flag2 = len1 > len2 ? 2 : 1;
+  
+  int menor = 1;
+  if (flag2 == 2){
+    for (int m = 0;m <= len2;m++){
+      if (asc1[m] < asc2[m]){menor = 1;break;}
+      else if(asc1[m] > asc2[m]){menor = 2;break;}
+    }
+  }
+  else{
+    for (int m = 0;m <= len1;m++){
+      if (asc1[m] < asc2[m]){menor = 1;break;}
+      else if(asc1[m] > asc2[m]){menor = 2;break;}
+    }
+  }
+
+  //retornamos os nomes ordenados com base no menor determinado
+  switch(menor){
+    case 1: {printf("Nomes ordenados: %s e %s",picknome[0],picknome[1]);
+      break;
+      }
+    case 2: printf("Nomes ordenados: %s e %s",picknome[1],picknome[0]);
+  }
 }
