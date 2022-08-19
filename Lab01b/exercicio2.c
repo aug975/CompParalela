@@ -24,10 +24,10 @@ int main() {
   //verificamos o conceito
   char conceito;
   if(MA >= 9){conceito = 'A';}
-  if(MA >= 7.5 && MA < 9){conceito = 'B';}
-  if(MA >= 6 && MA < 7.5){conceito = 'C';}
-  if(MA >= 4 && MA < 6){conceito = 'D';}
-  if(MA < 4){conceito = 'E';}
+  else if(MA >= 7.5 && MA < 9){conceito = 'B';}
+  else if(MA >= 6 && MA < 7.5){conceito = 'C';}
+  else if(MA >= 4 && MA < 6){conceito = 'D';}
+  else{conceito = 'E';}
 
   printf("Avaliacao final do aluno: %c",conceito);
 }
