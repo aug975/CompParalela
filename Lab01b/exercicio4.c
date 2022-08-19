@@ -4,7 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define NOMES 26
+#define NOMES 29
 #define NOMES_LEN 20
 #define PICKNOME 2
 #define PICKNOME_LEN 20
@@ -13,7 +13,7 @@
 int ascii(const char ch){
   int aux,n;
   aux = tolower(ch);
-  n = (int) aux;
+  n = (int) aux - 96;
   return n;
 }
 
@@ -23,11 +23,11 @@ int main() {
   srand(time(NULL)); 
 
   //criamos um array com nomes
-  char nomes[NOMES][NOMES_LEN] = { "Antonio", "Beatriz", "Caio", "Denis", "Enzo", "Felipe", "Gabriel", "Henrique", "Isaac", "Joao", "Kris", "Lucas", "Murilo", "Nicole", "Otavio", "Pedro", "Quintela", "Raimundo", "Sophia", "Teresa", "Ulisses", "Valdir", "William", "Xavier", "Yuri", "Zayn"};
+  char nomes[NOMES][NOMES_LEN] = { "Antonio", "Beatriz", "Caio", "Denis", "Enzo", "Felipe", "Gabriel", "Henrique", "Isaac", "Joao", "Kris", "Lucas", "Murilo", "Nicole", "Otavio", "Pedro", "Quintela", "Raimundo", "Sophia", "Teresa", "Ulisses", "Valdir", "William", "Xavier", "Yuri", "Zayn","Antenor","Jose","Vanessa"};
 
   //escolhemos dois nomes
   const char *picknome[PICKNOME],*temp[PICKNOME];
-  int n1,n2,iter;
+  int n1,n2,iter,iter2;
   int flag = 0;
   while (flag == 0){
     n1 = (rand() % (25 - 1 + 1)) + 1;
@@ -45,8 +45,8 @@ int main() {
   for (iter=0;iter<=strlen(picknome[0])-1;iter++){
     asc1[iter] = ascii(picknome[0][iter]);
   }
-  for (iter=0;iter<=strlen(picknome[1]-1);iter++){
-    asc2[iter] = ascii(picknome[1][iter]);
+  for (iter2=0;iter2<=strlen(picknome[1])-1;iter2++){
+    asc2[iter2] = ascii(picknome[1][iter2]);
   }
 
   //determinamos o menor array
