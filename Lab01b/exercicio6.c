@@ -1,8 +1,6 @@
 #include <stdio.h>
 
 int main() {
-  //inicializando srand
-  srand(time(NULL));
   
   int nlinhas,ncolunas,i,j,val;
   
