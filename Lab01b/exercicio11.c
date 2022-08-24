@@ -22,7 +22,7 @@ void soma(int nlinhas, int ncolunas, int matriz[nlinhas][ncolunas]){
   //mostramos a matriz resultante
   for(int i = 0; i < nlinhas; ++i){
     for(int j = 0; j < ncolunas; ++j){
-      printf("%d\t",matr2[i][j]);
+      printf("%3d\t",matr2[i][j]);
      }
     printf("\n");
   }
@@ -48,7 +48,7 @@ void multip(int nlinhas, int ncolunas, int matriz[nlinhas][ncolunas]){
   //mostramos a matriz resultante
   for(int i = 0; i < nlinhas; ++i){
     for(int j = 0; j < ncolunas; ++j){
-      printf("%d ",matr3[i][j]);
+      printf("%5d",matr3[i][j]);
      }
     printf("\n");
   }
@@ -79,7 +79,7 @@ int main() {
   //mostramos a matriz preenchida
   for(i = 0; i < nlinhas; ++i){
     for(j = 0; j < ncolunas; ++j){
-      printf("%d\t",matr[i][j]);
+      printf("%3d\t",matr[i][j]);
      }
     printf("\n");
   }
