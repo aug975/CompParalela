@@ -2,6 +2,27 @@
 #include <time.h>
 #include <stdlib.h>
 
+void modulo(int nlinhas,int ncolunas,int matriz[nlinhas][ncolunas]){
+  int matr2[nlinhas][ncolunas];
+  
+  //convertemos todos os valores para modulo
+  for(int i = 0; i < nlinhas; ++i){
+    for(int j = 0; j < ncolunas; ++j){
+      matr2[i][j] = abs(matriz[i][j]);
+    }
+  }
+
+  printf("Transformando em modulo...\n\n");
+
+  //mostramos a matriz convertida
+  for(int i = 0; i < nlinhas; ++i){
+    for(int j = 0; j < ncolunas; ++j){
+      printf("%d\t",matr2[i][j]);
+     }
+    printf("\n");
+  }
+}
+
 int main() {
   //inicializando srand
   srand(time(NULL));
@@ -13,7 +34,7 @@ int main() {
   nlinhas = 1+rand()%9;
   printf("\nGerando matriz...\n");
 
-  int matr[nlinhas][ncolunas],matr2[ncolunas][nlinhas];
+  int matr[nlinhas][ncolunas];
   
   //preenchemos a matriz gerada
   for(i = 0; i < nlinhas; ++i){
@@ -33,20 +54,6 @@ int main() {
   }
   printf("\n");
 
- //convertemos todos os valores para modulo
-  for(i = 0; i < nlinhas; ++i){
-    for(j = 0; j < ncolunas; ++j){
-      matr2[i][j] = abs(matr[i][j]);
-    }
-  }
-
-  printf("Transformando em modulo...\n\n");
-
-  //mostramos a matriz convertida
-  for(i = 0; i < nlinhas; ++i){
-    for(j = 0; j < ncolunas; ++j){
-      printf("%d\t",matr2[i][j]);
-     }
-    printf("\n");
-  }
+  modulo(nlinhas,ncolunas,matr);
+  
 }
