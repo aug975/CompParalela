@@ -9,7 +9,7 @@ int main(void) {
   srand(time(NULL));
 
   //gerar str100
-  char str[100] = "aaAAbbBBccCCddDDeeEEffFFggGGhhHHiiIIjjJJkkKKllLLmmMMnnNNooOOppPPqqQQrrRRssSSttTTuuUUvvVVwwWWxxXXyyY";
+  char str[101] = "aaAAbbBBccCCddDDeeEEffFFggGGhhHHiiIIjjJJkkKKllLLmmMMnnNNooOOppPPqqQQrrRRssSSttTTuuUUvvVVwwWWxxXXyyYY";
   char str2[101];
 
   int pos;
@@ -17,9 +17,9 @@ int main(void) {
   char caract = 'a' + (random() % 26);
   
   //pedir posicao do usuario
-  printf("String inicial: %s\n",str);
+  printf("String inicial: %s \n",str);
   printf("Caractere gerado: %c\n\n",caract);
-  printf("Informe posicao para insercao (0-98): ");
+  printf("Informe posicao para insercao (0-100): ");
   scanf("%d",&pos);
   putchar('\n');
 
