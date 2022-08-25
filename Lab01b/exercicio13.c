@@ -9,13 +9,13 @@ int main(void) {
   srand(time(NULL));
 
   //gerar str100
-  char str[100] = "aaAAbbBBccCCddDDeeEEffFFggGGhhHHiiIIjjJJkkKKllLLmmMMnnNNooOOppPPqqQQrrRRssSSttTTuuUUvvVVwwWWxxXXyyY";
+  char str[100] = "aaAAbbBBccCCddDDeeEEffFFggGGhhHHiiIIjjJJkkKKllLLmmMMnnNNooOOppPPqqQQrrRRssSSttTTuuUUvvVVwwWWxxXXyyYY";
   char str2[100];
 
   int pos;
   //pedir posicao do usuario
   printf("String inicial: %s\n\n",str);
-  printf("Informe posicao a ser removida (0-98): ");
+  printf("Informe posicao a ser removida (0-99): ");
   scanf("%d",&pos);
   putchar('\n');
 
