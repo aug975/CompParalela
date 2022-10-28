@@ -1,6 +1,6 @@
-# include < stdio.h >
-# include < stdlib.h >
-# include < omp.h >
+# include <stdio.h>
+# include <stdlib.h>
+# include <omp.h>
 
 void Trap ( double a , double b , int n , double * global_result_p );
 
