@@ -37,5 +37,5 @@ void Trap (double a, double b, int n, double *global_result_p){
 	}
 	my_result = my_result*h;
 	#pragma omp critical
-	*global_result_p += my_result ;
+	*global_result_p += my_result;
 } /* Trap */
