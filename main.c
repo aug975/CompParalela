@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
+#include <math.h>
+double f(double x){
+	return exp(x);
+}
 
 void Trap (double a, double b, int n, double *global_result_p);
 
@@ -16,7 +20,7 @@ int main (int argc, char * argv []) {
 	Trap (a, b, n, &global_result);
 
 	printf ("With n = %d trapezoids , our estimate \n", n);
-	printf ("of the integral from %g to %g = %.14 e\n", a, b, global_result);
+	printf ("of the integral from %g to %g = %.14e\n", a, b, global_result);
 	return 0;
 } /* main */
 
