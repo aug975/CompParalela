@@ -16,7 +16,7 @@ void mostrarMatriz(int matriz[],int tam1,int tam2){
   }
 }
 
-int main(){
+int main(int argc , char * argv []){
   srand(time(NULL));
   int thread_count;
   thread_count = strtol ( argv [1] , NULL , 10);
