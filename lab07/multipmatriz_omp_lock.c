@@ -42,8 +42,6 @@ int main(int argc , char * argv []){
   
   #pragma omp shared(A,B,matres) private(i,j,k)
   #pragma omp parallel for num_threads(thread_count)
-  {
-    omp_set_lock(&lock);
     for (i = 0; i < N; i++) {
       for (j = 0; j < M; j++) {
         for (k = 0; k < P; k++) {
@@ -51,8 +49,6 @@ int main(int argc , char * argv []){
         }
       }
     }
-    omp_unset_lock(&lock);
-  }
   printf("Matriz A:\n");
   mostrarMatriz(*A,N,P);
   printf("Matriz B:\n");
