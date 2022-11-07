@@ -41,7 +41,7 @@ int main(int argc , char * argv []){
 
   
   #pragma omp shared(A,B,matres) private(i,j,k)
-  #pragma omp parallel num_threads(thread_count)
+  #pragma omp parallel for num_threads(thread_count)
   {
     omp_set_lock(&lock);
     for (i = 0; i < N; i++) {
