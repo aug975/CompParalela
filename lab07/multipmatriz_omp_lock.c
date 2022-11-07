@@ -18,6 +18,9 @@ void mostrarMatriz(int matriz[],int tam1,int tam2){
 }
 
 int main(int argc , char * argv []){
+  omp_lock_t lock;
+  omp_init_lock(&lock);
+  
   srand(time(NULL));
   int thread_count;
   thread_count = strtol ( argv [1] , NULL , 10);
@@ -40,15 +43,15 @@ int main(int argc , char * argv []){
   #pragma omp shared(A,B,matres) private(i,j,k)
   #pragma omp parallel num_threads(thread_count)
   {
+    omp_set_lock(&lock);
     for (i = 0; i < N; i++) {
       for (j = 0; j < M; j++) {
         for (k = 0; k < P; k++) {
-          #pragma omp critical
           matres[i][j] += A[i][k] * B[k][j];
         }
       }
     }
-    
+    omp_unset_lock(&lock);
   }
   printf("Matriz A:\n");
   mostrarMatriz(*A,N,P);
