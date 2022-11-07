@@ -144,3 +144,8 @@ Comparação para `for`:
 |   0.002s    |  0.002s   |   0.002s     |  0.002s | 2                       |
 | 0.002s      | 0.002s    | 0.001s       | 0.001s  | 1                       |
 
+## Parte 3 - Speedup
+
+![image](https://user-images.githubusercontent.com/101229028/200234815-b3f39204-da10-43d3-9c82-80b719c22d2a.png)
+
+Obs.: Devido ao limite de dois processadores, estes resultados são imprecisos. O tempo baixo resulta em diferenças pequenas que são essencialmente aleatórias. Não há forma de testar com valores maiores na AWS.
