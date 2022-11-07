@@ -43,7 +43,7 @@ Obs.: Uma pequena mudança foi feita no output, para melhor precisão.
 
 ### Faça um gráfico que mostre a escalabilidade do Speedup para cada quantidade de threads utilizada.
 
->OBS: As modificações de código no controle de versão estão comentadas.
+>OBS.: As modificações de código no controle de versão estão comentadas.
 
 ## Parte 1 - Comparar valores de somatório
 
