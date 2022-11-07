@@ -18,6 +18,8 @@ void mostrarMatriz(int matriz[],int tam1,int tam2){
 
 int main(){
   srand(time(NULL));
+  int thread_count;
+  thread_count = strtol ( argv [1] , NULL , 10);
   unsigned long i, j, k;
   int A[N][P];
   int B[P][M];
@@ -33,7 +35,9 @@ int main(){
     for (j = 0; j < M; j++)
       matres[i][j] = 0;
 
-  #pragma omp parallel shared(A,B,matres) private(i,j,k)
+  
+  #pragma omp shared(A,B,matres) private(i,j,k)
+  #pragma omp parallel num_threads(thread_count)
   {
     #pragma omp for schedule (static)
     for (i = 0; i < N; i++) {
